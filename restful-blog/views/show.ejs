@@ -1,0 +1,16 @@
+<% include ./partials/header %>
+
+<div class="ui container segment">
+	<div class="ui huge header"><%= blog.title %> </div>
+	<img src="<%= blog.image %>" alt="" class="ui rounded centered medium image">
+	<p><%- blog.body %></p>
+	<form class="ui form" action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+		<div class="ui buttons">
+			<a class="ui teal button button" href="/blogs/<%= blog._id %>/edit">Edit</a>
+			<button type="submit" class="ui red right floated button">Delete</button>
+		</div>
+		
+	</form>
+</div>
+
+<% include ./partials/footer %>

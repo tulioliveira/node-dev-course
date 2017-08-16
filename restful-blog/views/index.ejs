@@ -1,0 +1,22 @@
+<% include ./partials/header %>
+
+<div class="ui main text container">
+	<div class="ui huge center aligned header"> Blogs </div>
+	<div class="ui grid">
+		<% blogs.forEach(function(blog) { %>
+			<div class="ui four wide column">
+				<div class="ui segment" style="overflow:auto;">
+					<h2 class="ui center aligned header"><%= blog.title %></h2>
+					<img class="ui small centered image" src="<%= blog.image%>">
+					<p><%- blog.body.substring(0, 100) %></p>
+					<div class="ui two column grid">
+						<div class="column"><a href="/blogs/<%= blog._id %>" class="ui fluid link violet button">More</a></div>
+						<div class="column"><a href="/blogs/<%= blog._id %>/edit" class="ui fluid link orange button">Edit</a></div>
+					</div>					
+				</div>
+			</div>
+		<% }) %>
+	</div>	
+</div>
+
+<% include ./partials/footer %>
