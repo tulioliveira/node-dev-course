@@ -25,14 +25,37 @@ app.use(methodOverride("_method"));
 
 seedDB();
 
+// MAIN PAGE
+app.get('/', function(req,res){
+	res.redirect('/campgrounds');
+});
+
 // INDEX ROUTE
-app.get('/', function(req, res){
+app.get('/campgrounds', function(req, res){
 	Campground.find({}, function(err, results) {
 		if (err) {
 			console.log(err);
 		}
 		else {
 			res.render("index", {campgrounds: results});
+		}
+	});
+});
+
+// NEW ROUTE
+app.get('/campgrounds/new', function (req,res) {
+	res.render('new');
+});
+
+// CREATE ROUTE
+app.post('/campgrounds', function(req, res) {
+	req.body.campground.description = req.sanitize(req.body.campground.description);
+	Campground.create(req.body.campground, function(err, newCampground) {
+		if (err){
+			res.render("new");
+		}
+		else {
+			res.redirect("/campgrounds");
 		}
 	});
 });
@@ -45,9 +68,9 @@ app.get('/campgrounds/:id', function(req,res) {
 		}
 		else {
 			console.log(campground);
-			res.render("show", {campground: campground})		
+			res.render("show", {campground: campground});		
 		}
-	})
+	});
 });
 
 
