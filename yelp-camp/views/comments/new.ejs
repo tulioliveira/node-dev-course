@@ -1,0 +1,23 @@
+<% include ./../partials/header %>
+
+<div class="ui raised text container segment">
+	<div class="ui huge center aligned header">New Comment for <%= campground.name %></div>
+	<form action="/campgrounds/<%= campground._id %>/comments" class="ui form" method="POST">
+		<div class="field">
+			<label for="comment[author]">Author</label>
+			<input name="comment[author]" type="text" placeholder="Author">
+		</div>
+		<div class="field">
+			<label for="comment[text]">Text</label>
+			<textarea name="comment[text]"></textarea>
+		</div>
+		<div class="right aligned field">
+			<div class="ui right aligned container">
+				<a class="ui left floated link button" href="/campgrounds/<%= campground._id%>"> Go back </a>
+				<input type="submit" class="ui blue inverted button" value="Add Comment">
+			</div>
+		</div>
+	</form>
+</div>	
+
+<% include ./../partials/footer %>

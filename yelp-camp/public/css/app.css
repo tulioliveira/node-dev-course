@@ -1,3 +1,11 @@
+p
+{
+    font-family: 'Karma', 'Times New Roman';
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+
 .main.menu
 {
     margin-top: 2em !important;
@@ -19,7 +27,8 @@
     box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
 }
 
-.masthead {
+.masthead
+{
     margin-bottom: 4em;
 }
 
@@ -35,6 +44,11 @@
 {
     font-size: 1.7em;
     font-weight: normal;
+}
+
+.justified
+{
+    text-align: justify;
 }
 
 .ui.margin.bottom.small

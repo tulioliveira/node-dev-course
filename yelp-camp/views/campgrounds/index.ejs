@@ -1,4 +1,4 @@
-<% include ./partials/header %>
+<% include ./../partials/header %>
 
 <div class="ui center aligned masthead container">
 	<h1 class="ui header">Welcome To YelpCamp!</h1>
@@ -19,7 +19,7 @@
 						<span class="date">Created in <%= campground.created_at.toLocaleDateString() %></span>
 					</div>
 					<div class="description">
-						<%= campground.description %>
+						<%= (campground.description.length > 100) ? campground.description.substring(0, 100) + '...' : campground.description  %>
 					</div>
 				</div>
 				<div class="extra content">
@@ -34,4 +34,4 @@
 
 	
 
-<% include ./partials/footer %>
+<% include ./../partials/footer %>

@@ -33,7 +33,8 @@ var data = [
 		image: "https://cdn-jpg2.theactivetimes.com/sites/default/files/camping.jpg",
 		description: "Random Description for the camp"
 	}
-]
+];
+
 function seedDB() {
 	// Clear all Campground entries
 	Campground.remove({}, function(err) {
