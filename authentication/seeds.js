@@ -1,22 +1,35 @@
-var mongoose = require('mongoose');
-var User     = require('./models/user');
+var User = require('./models/user');
 
-var data = [];
+var data = [
+	{
+		username: "example1",
+		password: "123456"
+	},
+	{
+		username: "example2",
+		password: "123456"
+	},
+	{
+		username: "example3",
+		password: "123456"
+	}
+];
+
 function seedDB() {
 	// Clear all User entries
-	User.remove({}, function(err) {
+	User.remove({}, function (err) {
 		if (err) {
 			console.log(err);
 		}
 		else {
-			console.log("User Removed!");
-			data.forEach(function(seed) {
-				User.create(seed, function(err, newCampground) {
-					if (err){
+			console.log("Users Removed!");
+			data.forEach(function (seed) {
+				User.create(seed, function (err, newUser) {
+					if (err) {
 						console.log(err);
 					}
 					else {
-						console.log("User created!");
+						console.log(newUser);
 					}
 				});
 			});
