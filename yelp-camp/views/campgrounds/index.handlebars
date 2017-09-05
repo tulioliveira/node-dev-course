@@ -1,0 +1,35 @@
+<div class="ui center aligned masthead container">
+	<h1 class="ui header">Welcome To YelpCamp!</h1>
+	<h2>View our hand-picked campgrounds from all over the world</h2>
+	<a href="/campgrounds/new" class="ui huge inverted blue button"> Add New Campground </a>
+</div>
+
+<div class="ui center aligned container">
+	<div class="ui cards">
+		{{#each campgrounds}}
+			<div class="ui raised centered card">
+				<div class="image">
+					<img src="{{image}}">
+				</div>
+				<div class="content">
+					<a class="header"> {{name}} </a>
+					<div class="meta">
+						<span class="date">Created in {{moment created_at 'DD/MM/YYYY'}}</span>
+					</div>
+					<div class="description">
+						{{#ifCond description.length '>' 100}}
+							{{substring description 0 100}}
+						{{else}}
+							{{description}}
+						{{/ifCond}}
+					</div>
+				</div>
+				<div class="extra content">
+					<a href="/campgrounds/{{_id}}" class="ui blue fluid button">
+						Show More
+					</a>
+				</div>
+			</div>
+		{{/each}}
+	</div>
+</div>
