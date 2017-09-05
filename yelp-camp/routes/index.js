@@ -30,7 +30,7 @@ router.post('/register', function (req, res) {
 			return res.render("register");
 		}
 		passport.authenticate("local")(req, res, function() {
-			res.redirect('/campgrounds');
+			res.redirect('/');
 		});
 	});
 });
@@ -42,14 +42,14 @@ router.get('/login', function (req, res) {
 
 // Login Logic Handling
 router.post('/login', passport.authenticate('local', {
-	successRedirect: '/campgrounds',
+	successRedirect: '/',
 	failureRedirect: '/login'
 }), function (req, res) {});
 
 // Logout Logic Handling
 router.get('/logout', function(req, res) {
 	req.logout();
-	res.redirect('/campgrounds');
+	res.redirect('/');
 });
 
 /**
